@@ -19,7 +19,7 @@ A simple, responsive calculator for basic arithmetic operations.
 
 1. **Clone the repository**
    ```sh
-   git clone https://github.com/your-username/calculator-project.git
+   git clone https://github.com/ivanalamillopalma22/Calculator.git
    ```
 2. **Navigate to the Calculator folder**
    ```sh
@@ -52,3 +52,4 @@ This calculator is a client-side web app and does not use an external API. All c
 - `index.html`: Main HTML file
 - `style.css`: Stylesheet
 - `script.js`: Calculator logic
+
