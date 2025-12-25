@@ -1,0 +1,287 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #181515;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Theme Switcher Styles */
+.theme-switcher-container {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    z-index: 100;
+    display: flex;
+    gap: 10px;
+}
+
+.theme-switcher-container button {
+    padding: 6px 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    background: #fff;
+    color: #181515;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    transition: background 0.3s, color 0.3s;
+}
+
+.theme-dark .theme-switcher-container button {
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+}
+.theme-color .theme-switcher-container button {
+    background: #e0bbff;
+    color: #4b006e;
+    border: 1px solid #a259ff;
+}
+
+/* Light Theme */
+body.theme-light {
+    background-color: #e0e0e0;
+    color: #181515;
+}
+.theme-light .calculator {
+    background-color: #fff;
+    color: #181515;
+    border: 8px solid #bbb;
+}
+.theme-light .status-bar,
+.theme-light .display-container,
+.theme-light .history,
+.theme-light .display {
+    color: #181515;
+}
+.theme-light .btn {
+    background: #f5f5f5;
+    color: #181515;
+    border: 1px solid #ddd;
+}
+.theme-light .btn.equals {
+    background: #4caf50;
+    color: #fff;
+}
+.theme-light .btn.operator-side, .theme-light .btn.operator-top {
+    background: #e0e0e0;
+    color: #181515;
+}
+
+/* Dark Theme */
+body.theme-dark {
+    background-color: #181515;
+    color: #fff;
+}
+.theme-dark .calculator {
+    background-color: #181515;
+    color: #fff;
+    border: 8px solid #333;
+}
+.theme-dark .status-bar,
+.theme-dark .display-container,
+.theme-dark .history,
+.theme-dark .display {
+    color: #fff;
+}
+.theme-dark .btn {
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+}
+.theme-dark .btn.equals {
+    background: #4caf50;
+    color: #fff;
+}
+.theme-dark .btn.operator-side, .theme-dark .btn.operator-top {
+    background: #333;
+    color: #fff;
+}
+
+/* Color Theme */
+body.theme-color {
+    background-color: #f0e6ff;
+    color: #4b006e;
+}
+.theme-color .calculator {
+    background-color: #fff0f6;
+    color: #4b006e;
+    border: 8px solid #a259ff;
+}
+.theme-color .status-bar,
+.theme-color .display-container,
+.theme-color .history,
+.theme-color .display {
+    color: #4b006e;
+}
+.theme-color .btn {
+    background: #e0bbff;
+    color: #4b006e;
+    border: 1px solid #a259ff;
+}
+.theme-color .btn.equals {
+    background: #a259ff;
+    color: #fff;
+}
+.theme-color .btn.operator-side, .theme-color .btn.operator-top {
+    background: #b388ff;
+    color: #4b006e;
+}
+
+
+.calculator {
+    width: 375px; /* Typical mobile width */
+    height: 812px; /* Typical mobile height */
+    background-color: #181515;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: 40px; /* Rounded corners for phone look */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5); /* Shadow for depth */
+    position: relative;
+    overflow: hidden;
+    border: 8px solid #333; /* Phone bezel */
+}
+
+/* Status Bar */
+.status-bar {
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    right: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: inherit;
+    z-index: 10;
+}
+
+.status-icons {
+    display: flex;
+    gap: 8px;
+}
+
+.display-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    margin-top: 40px; /* Space for status bar */
+}
+
+.history {
+    font-size: 1.5rem;
+    color: #888;
+    min-height: 2rem;
+    margin-bottom: 10px;
+    word-break: break-all;
+    text-align: right;
+}
+
+.display {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 4rem;
+    text-align: right;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding-bottom: 20px; /* Bottom padding inside the phone */
+}
+
+.btn {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: filter 0.2s;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+.btn:active {
+    filter: brightness(1.2);
+}
+
+/* Number Buttons */
+.number {
+    background-color: #332e2e;
+    color: #e0e0e0;
+}
+
+/* AC Button */
+.operator-top:first-child {
+    background-color: #5b60a8;
+    color: #e0e0e0;
+}
+
+/* Other Operators (Dark Green) */
+.operator-top, .operator-side {
+    background-color: #354635;
+    color: #e0e0e0;
+}
+
+/* Override for AC */
+.btn.operator-top:nth-child(1) {
+    background-color: #5b60a8;
+    color: white;
+}
+
+/* Equals Button */
+.equals {
+    background-color: #8bdcb6;
+    color: #181515;
+}
+
+.btn i {
+    font-size: 1.4rem;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 480px) {
+    body {
+        background-color: #181515;
+        align-items: flex-end; /* Align to bottom on real mobile */
+    }
+
+    .calculator {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        padding: 20px;
+    }
+    
+    .status-bar {
+        top: 10px;
+        left: 20px;
+        right: 20px;
+    }
+}
